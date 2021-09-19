@@ -1,4 +1,4 @@
-
+import { AuthService } from 'api/Domains/Auth/services/authService';
 import { BasePaginatedMeta } from 'api/baseInterface';
 import { HttpStatusCode } from 'enums';
 import { toNumber } from 'lodash';
@@ -78,6 +78,12 @@ export class UserService {
 
     public static async edit(departmentId: string, userInfo: Partial<User>): Promise<User> {
         const user = await this.find(convertToObjectID(departmentId), true);
+
+        if (userInfo.password) {
+
+            userInfo.password = AuthService.generatePasswordHash(userInfo.password);
+
+        }
 
         await User.update(user, userInfo, { reload: true });
 
