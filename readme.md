@@ -1,32 +1,6 @@
-# Node/Express using typescript
+# Cliemedo Test
 
-### Boilerplate for using typescript in node. 
-
-## Features
-* Uses typescript
-* Basic mysql/TypeORM model setup
-* Global error handling
-* Rate limiting
-* Cors enabled
-* TypeORM Migration
-* Request input validation using [Joi](https://github.com/hapijs/joi)
-_ _ _ _
-
-## Quick Start
-
-Get started developing...
-
-```shell
-# install deps
-npm install
-
-# run in development mode
-npm run watch
-
-```
-
----
-
+# How to run
 ## Install Dependencies
 
 Install all package dependencies (one time operation)
@@ -55,13 +29,15 @@ npm start
 
 
 ## Try It
-* Open you're browser to [http://localhost:3000](http://localhost:3000)
-* Invoke the `/` endpoint 
-  ```shell
-  curl http://localhost:3000/
-  ```
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/4428062-00d8ed5e-3f69-44d7-981c-e3380efa3b69-UUxtEAAK)
+
+See full documentation on [Postman](https://documenter.getpostman.com/view/4428062/UUxtEAAK)
 
 
-#### Debug with VSCode
+# Application details section
 
-Add these [contents](https://github.com/thecodearcher/node-typescript/blob/master/.vscode/launch.json) to your `.vscode/launch.json` file
+**Name:** Brian Iyoha
+
+**Email:** brian.iyoha@gmail.com
+
+**Position:** Backend Engineer
