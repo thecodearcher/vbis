@@ -1,4 +1,12 @@
+import { User as UserModel } from './Domains/User/models/userModel';
 import { HttpStatusCode } from 'enums/httpStatusCode';
+
+declare global {
+    namespace Express {
+        // tslint:disable-next-line:no-empty-interface
+        interface User extends UserModel { }
+    }
+}
 
 export interface BaseApiResponse {
     data?: any;
