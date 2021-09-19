@@ -4,7 +4,7 @@
     ],
     "ext": "ts",
     "ignore": [
-        "src/**/*.spec.ts"
+        "tests/**/*.spec.ts"
     ],
-    "exec": "rm -rf ./dist && tsc && node ./dist"
+    "exec": "rm -rf ./dist && tsc && NODE_PATH=./dist node ./dist"
 }

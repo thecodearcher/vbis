@@ -1,4 +1,2 @@
+export  * from  './Domains/Auth';
 export * from './Domains/User';
-export * from './Domains/Department';
-export * from './Domains/Department';
-export * from './Domains/Department';

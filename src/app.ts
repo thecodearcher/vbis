@@ -4,6 +4,7 @@ import { errorHandler, global } from './middlewares';
 import { logger } from './utils';
 import 'reflect-metadata';
 import { initializeDb } from './db';
+import { authRouter } from 'api/Domains/Auth';
 
 class App {
     public express = express();
@@ -22,7 +23,7 @@ class App {
     }
 
     private mountRoutes() {
-
+        this.express.use(`${this.basePath}/auth`, authRouter);
     }
 
     private registerMiddlewares() {
