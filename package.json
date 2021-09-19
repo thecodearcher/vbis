@@ -11,7 +11,7 @@
     "compile": "tsc",
     "start": "NODE_PATH=./dist && node ./dist",
     "watch": "nodemon",
-    "test": "NODE_ENV=test jest --runInBand",
+    "test": "NODE_PATH=./dist NODE_ENV=test jest --runInBand",
     "typeorm": "npx ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migrate:create": "ts-node ./node_modules/typeorm/cli.js migration:create -n",
     "migrate:up": "ts-node ./node_modules/typeorm/cli.js migration:run",

@@ -6,14 +6,14 @@ module.exports = {
   coverageDirectory: "coverage",
 
   // A list of paths to directories that Jest should use to search for files in
-  roots: ['<rootDir>/src'],
+  roots: ['<rootDir>/tests'],
 
   // The test environment that will be used for testing
   testEnvironment: "node",
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "<rootDir>/src/**/*.spec.ts",
+    "<rootDir>/tests/**/**/*.spec.ts",
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
