@@ -45,6 +45,8 @@ export class AuthService {
 
         userData.password = this.generatePasswordHash(userData.password);
 
+        userData.role = userData.role ?? 'user'; // default to user role
+
         const user = await UserService.create(userData);
 
         const accessToken = this.generateAccessToken(user);
@@ -53,7 +55,7 @@ export class AuthService {
 
     }
 
-    private static generatePasswordHash(password: string): string {
+    public static generatePasswordHash(password: string): string {
         return bcrypt.hashSync(password, 10);
     }
 
