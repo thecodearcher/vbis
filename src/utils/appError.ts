@@ -3,6 +3,7 @@ export class AppError extends Error {
     public statusCode: number;
     public isOperational: boolean;
     public data: any;
+
     constructor(message: string, data: any = null, statusCode: number = 400, isOperational: boolean = true) {
        super(message);
        Error.captureStackTrace(this, AppError);

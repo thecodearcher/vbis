@@ -1,4 +1,4 @@
-import { HttpStatusCode } from '../enums';
+import { HttpStatusCode } from 'enums/httpStatusCode';
 
 export interface BaseApiResponse {
     data?: any;
@@ -14,4 +14,5 @@ export interface BasePaginatedMeta {
     prevPage?: number;
     nextPage?: number;
     limit: number;
+    totalPages: number;
 }

@@ -1,7 +1,10 @@
 
+import { BasePaginatedMeta } from 'api/baseInterface';
 import { HttpStatusCode } from 'enums';
+import { toNumber } from 'lodash';
 import { ObjectID } from 'typeorm-plus';
 import { AppError } from 'utils';
+import { convertToObjectID } from 'utils/helpers';
 import { User } from './../models/userModel';
 
 export class UserService {
@@ -39,6 +42,56 @@ export class UserService {
         }
 
         return await User.create(userInfo).save();
+    }
+
+    public static async view(departmentId: string): Promise<User> {
+
+        return await this.find(convertToObjectID(departmentId), true);
+
+    }
+
+    public static async search({ limit = 10, page = 1 }): Promise<[User[], BasePaginatedMeta]> {
+
+        const currentPage = toNumber(page);
+
+        const take = toNumber(limit);
+
+        const skip = take * (currentPage - 1);
+
+        const [departments, total] = await User.findAndCount({
+            order: { createdAt: 'DESC' },
+            take, skip: skip >= 0 ? skip : take,
+        });
+
+        const totalPages = Math.ceil(total / limit);
+
+        return [departments, {
+            currentPage,
+            total,
+            limit: take,
+            nextPage: totalPages > currentPage ? currentPage + 1 : null,
+            prevPage: currentPage > 1 ? currentPage - 1 : null,
+            totalPages,
+        }];
+
+    }
+
+    public static async edit(departmentId: string, userInfo: Partial<User>): Promise<User> {
+        const user = await this.find(convertToObjectID(departmentId), true);
+
+        await User.update(user, userInfo, { reload: true });
+
+        await user.reload();
+
+        return user;
+    }
+
+    public static async delete(departmentId: string): Promise<void> {
+        const user = await this.find(convertToObjectID(departmentId), true);
+
+        await User.delete(user);
+
+        return;
     }
 
 }

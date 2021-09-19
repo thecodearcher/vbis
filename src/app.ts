@@ -1,4 +1,5 @@
 import express from 'express';
+import { userRouter } from './api';
 import { BASE_PATH } from './config';
 import { errorHandler, global } from './middlewares';
 import { logger } from './utils';
@@ -24,6 +25,7 @@ class App {
 
     private mountRoutes() {
         this.express.use(`${this.basePath}/auth`, authRouter);
+        this.express.use(`${this.basePath}/users`, userRouter);
     }
 
     private registerMiddlewares() {
