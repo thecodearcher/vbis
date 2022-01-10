@@ -1,4 +1,4 @@
-# Cliemedo Test
+# Very Basic Identity System
 
 # How to run
 ## Install Dependencies
@@ -40,4 +40,3 @@ See full documentation on [Postman](https://documenter.getpostman.com/view/44280
 
 **Email:** brian.iyoha@gmail.com
 
-**Position:** Backend Engineer
